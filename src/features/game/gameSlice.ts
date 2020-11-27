@@ -41,9 +41,13 @@ const gameSlice = createSlice({
     questionAnswered(state, action) {
       if (!state.gameFinished) {
         const id = state.currentQuestionId;
-
+        let correctAnswer;
         // cast state.questions[id].correct_answer from string to boolean
-        const correctAnswer = state.questions[id].correct_answer === 'true';
+        if (typeof action.payload === 'boolean') {
+          correctAnswer = state.questions[id].correct_answer === 'true';
+        } else {
+          correctAnswer = state.questions[id].correct_answer;
+        }
 
         if (action.payload === correctAnswer) {
           state.correctAnswers.push(id);
@@ -79,6 +83,7 @@ const gameSlice = createSlice({
               id: index,
               correct_answer: question.correct_answer.toLowerCase(),
               question: decode(question.question),
+              // answers: question.incorrect_answers.concat(question.correct_answer).sort(),
             };
           });
         },

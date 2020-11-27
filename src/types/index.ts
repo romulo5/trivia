@@ -12,7 +12,8 @@ export type Question = {
   difficulty: QueryParams['difficulty'];
   question: string;
   correct_answer: string;
-  incorrect_answer: string[];
+  incorrect_answers: string[];
+  answers: string[]
 };
 export type Response = {
   response_code: number;

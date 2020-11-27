@@ -47,6 +47,7 @@ const Results = () => {
                       ? 'text-white'
                       : ' text-red-300 '
                   } text-base text-justify py-2`}
+                  key={question.id}
                 >
                   {` ${correct.includes(question.id) ? '\u2713' : '\u2717'} 
                       ${
