@@ -2,10 +2,10 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { RootStateOrAny, useSelector, useDispatch } from 'react-redux';
 import SettingsModal from 'features/settings/SettingsModal';
-import { fetchQuestions } from 'features/questions/questionsSlice';
-
+import { fetchQuestions } from 'features/game/gameSlice';
 import { QueryParams } from 'types';
 import { useModal } from 'helpers/hooks';
+import Layout from 'containers/Layout';
 
 const Home = () => {
   const { isModalOpen, toggleModal } = useModal(false);
@@ -25,37 +25,44 @@ const Home = () => {
   return (
     <>
       {isModalOpen && <SettingsModal toggleModal={toggleModal} />}
-      <div
-        className={`flex flex-col justify-center items-center bg-gray-700 h-screen ${
-          isModalOpen ? 'opacity-90' : ''
-        }`}
-      >
-        <h1 className="text-white text-xl">Welcome to the Trivia Challenge</h1>
-        <p className="text-gray-300 p-6">
-          You be presented with True or False questions
-        </p>
-        <button
-          className="transition  ease-in-out transform hover:scale-x-110
-         text-white  font-bold  text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-          type="button"
-          onClick={() => {
-            return toggleModal();
-          }}
+      <Layout>
+        <div
+          className={`${
+            isModalOpen ? 'opacity-10' : ''
+          } flex flex-col justify-around items-center max-w-md h-60v `}
         >
-          quiz settings
-        </button>
+          <div className="flex flex-col  items-center">
+            <span className="text-9xl text-green-500">?</span>
+            <h1 className="text-white text-xl">Trivia Challenge</h1>
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <p className="text-gray-300 text-2xl ">Can You score</p>
+            <span className="text-5xl text-green-500">100%?</span>
+          </div>
+          <div className="flex flex-col">
+            <button
+              className="transition ease-in-out transform hover:scale-x-110
+            text-white  text-sm mx-16 px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none "
+              type="button"
+              onClick={() => {
+                return toggleModal();
+              }}
+            >
+              change quiz settings
+            </button>
 
-        <p className="text-gray-300">Can You score 100% ?</p>
-        <button
-          type="submit"
-          className="p-6 bg-green-400 px-6 py-2 mt-4 shadow-xl rounded-mdv "
-          onClick={() => {
-            return startQuiz();
-          }}
-        >
-          Begin
-        </button>
-      </div>
+            <button
+              type="submit"
+              className="p-6 text-2xl bg-green-400 px-6 py-2  text-green-900  shadow-xl rounded-md w-full"
+              onClick={() => {
+                return startQuiz();
+              }}
+            >
+              Start
+            </button>
+          </div>
+        </div>
+      </Layout>
     </>
   );
 };

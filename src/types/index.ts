@@ -6,12 +6,13 @@ export type QueryParams = {
 };
 
 export type Question = {
+  id: number;
   category: string;
   type: QueryParams['questionType'];
   difficulty: QueryParams['difficulty'];
   question: string;
-  correct_answer: boolean;
-  incorrect_answer: boolean[];
+  correct_answer: string;
+  incorrect_answer: string[];
 };
 export type Response = {
   response_code: number;

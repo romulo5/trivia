@@ -1,11 +1,12 @@
 import React from 'react';
-import Question from 'features/questions/Question';
+import Game from 'features/game/Game';
+import Layout from 'containers/Layout';
 
 const Quiz = () => {
   return (
-    <div className="flex flex-col justify-center items-center bg-gray-700 h-screen">
-      <Question />
-    </div>
+    <Layout>
+      <Game />
+    </Layout>
   );
 };
 

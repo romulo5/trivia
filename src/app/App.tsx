@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from 'pages/Home';
 import Quiz from 'pages/Quiz';
 import Results from 'pages/Results';
+import Error from 'pages/Error';
 
 const App = () => {
   return (
@@ -18,7 +19,4 @@ const App = () => {
   );
 };
 
-const Error = () => {
-  return <h1>Oops</h1>;
-};
 export default App;

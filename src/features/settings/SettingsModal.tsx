@@ -8,8 +8,8 @@ type Props = {
 };
 
 const SettingsModal = ({ toggleModal }: Props) => {
-  const settings = useSelector((state: RootStateOrAny) => {
-    return state.settings as QueryParams;
+  const settings: QueryParams = useSelector((state: RootStateOrAny) => {
+    return state.settings;
   });
 
   const [amount, setAmount] = useState<QueryParams['amount']>(settings.amount);
@@ -28,8 +28,8 @@ const SettingsModal = ({ toggleModal }: Props) => {
   };
 
   return (
-    <div className="flex justify-center items-center fixed inset-0 z-50  ">
-      <div className="flex flex-col items-start border-0 py-8 px-10 rounded-lg shadow-lg bg-gray-900 ">
+    <div className="flex justify-center items-center fixed inset-0 z-50   ">
+      <div className="flex flex-col items-start border-0 py-10 px-16 rounded-lg shadow-lg bg-gray-800  ">
         <span className="text-gray-400 text-sm border-b border-gray-400 mb-2">
           trivia options
         </span>
@@ -39,7 +39,7 @@ const SettingsModal = ({ toggleModal }: Props) => {
             <span className="text-gray-300 pr-3">Number of questions</span>
             <select
               id="amount"
-              className="flex-grow form-select bg-gray-800 text-white "
+              className="flex-grow form-select bg-gray-900 text-white "
               value={amount}
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                 return setAmount(parseFloat(e.target.value));
@@ -57,7 +57,7 @@ const SettingsModal = ({ toggleModal }: Props) => {
             <span className="text-white pr-3 ">Difficulty</span>
             <select
               id="difficulty"
-              className="flex-grow form-select bg-gray-800  text-white"
+              className="flex-grow form-select bg-gray-900  text-white"
               value={difficulty}
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                 return setDifficulty(
@@ -80,7 +80,7 @@ const SettingsModal = ({ toggleModal }: Props) => {
             >
               <input
                 type="radio"
-                className="form-radio h-3 w-3 text-green-400"
+                className="form-radio h-1 w-3 text-green-400"
                 name="difficultyLevel"
                 value="boolean"
                 id="question-boolean"
@@ -99,7 +99,7 @@ const SettingsModal = ({ toggleModal }: Props) => {
             >
               <input
                 type="radio"
-                className="form-radio h-3 w-3 text-green-400"
+                className="form-radio h-1 w-3 text-green-400"
                 name="difficultyLevel"
                 value="multiple"
                 id="question-multiple"

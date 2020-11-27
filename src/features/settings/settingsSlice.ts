@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { QueryParams } from 'types';
 
 const initialState: QueryParams = {
@@ -12,7 +12,7 @@ const settingsSlice = createSlice({
   name: 'settings',
   initialState,
   reducers: {
-    settingsSaved(state, action) {
+    settingsSaved(state, action: PayloadAction<QueryParams>) {
       return action.payload;
     },
   },
