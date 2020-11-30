@@ -2,6 +2,8 @@
 
 Trivia is a React app built for g2i's coding challenge. This project was built using typescript, redux for state management, react-router for navigation and tailwindcss as a utility-first CSS framework. The project is organized by features, with a clear separation of UI and business logic. 
 
+demo: https://trivia-tau.vercel.app
+
 ##### Folder Structure
 
 src/
