@@ -8,7 +8,9 @@ import { useModal } from 'helpers/hooks';
 import Layout from 'containers/Layout';
 
 const Home = () => {
-  const { isModalOpen, toggleModal } = useModal(false);
+  const { isModalOpen, useToggleModal } = useModal(false);
+
+  const toggleModal = useToggleModal;
 
   const settings: QueryParams = useSelector((state: RootStateOrAny) => {
     return state.settings;
